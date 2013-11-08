@@ -1,0 +1,49 @@
+.ui-tabs {
+	clear: both;
+	overflow: hidden;
+}
+
+.ui-tabs img {
+	margin: 0 0 10px;
+}
+	
+.ui-tabs .post {
+	background: #f5f5f5;
+	margin: 0 0 10px;
+	overflow: hidden;
+	padding: 15px;
+}
+
+.ui-tabs .ui-tabs-hide {
+	display: none;
+}
+
+.ui-tabs ul.ui-tabs-nav {
+	clear: both;
+	font-size: 12px;
+	list-style-type: none;
+	margin: 10px 0 3px; 
+	padding: 0;
+}
+	
+.ui-tabs ul.ui-tabs-nav li {
+	display: inline;
+	margin: 0 5px 0 0; 
+	padding: 0;
+	text-align: center;
+}
+	
+.ui-tabs ul.ui-tabs-nav li a {
+	background-color: #ddd;
+	color: #333;
+	margin: 0; 
+	padding: 10px 10px 8px;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+	
+.ui-tabs ul.ui-tabs-nav li a:hover,
+.ui-tabs ul.ui-tabs-nav li.ui-tabs-selected a {
+	background-color: #f5f5f5;
+	color: #333;
+}
