@@ -1,12 +1,12 @@
 <?php
 /*
 	Plugin Name: Genesis Tabs
-	Plugin URI: http://www.studiopress.com/plugins/genesis-tabs
-	Description: Genesis Simple Tabs extends the Featured Post widget to create a simple tabbed area.
+	Plugin URI: http://wordpress.org/plugins/genesis-tabs/
+	Description: Genesis Tabs extends the Featured Post widget to create a simple tabbed area.
 	Author: StudioPress
-	Author URI: http://www.studiopress.com
+	Author URI: http://www.studiopress.com/
 
-	Version: 0.9.0
+	Version: 0.9.1
 
 	License: GNU General Public License v2.0 (or later)
 	License URI: http://www.opensource.org/licenses/gpl-license.php
@@ -99,26 +99,26 @@ class Genesis_Tabs_Widget extends WP_Widget {
 
 		// defaults
 		$instance = wp_parse_args( (array) $instance, array(
-			'title'				=> '',
-			'posts_cat_1'		=> '',
-			'posts_cat_2'		=> '',
-			'posts_cat_3'		=> '',
-			'posts_cat_4'		=> '',
-			'posts_cat_5'		=> '',
-			'posts_cat_6'		=> '',
-			'posts_cat_7'		=> '',
-			'posts_cat_8'		=> '',
-			'posts_cat_9'		=> '',
-			'posts_cat_10'		=> '',
-			'show_image'		=> 0,
-			'image_alignment'	=> '',
-			'image_size'		=> '',
-			'show_title'		=> 0,
-			'show_byline'		=> 0,
-			'post_info'			=> '[post_date] ' . __('By', 'genesis') . ' [post_author_posts_link] [post_comments]',
-			'show_content'		=> 'excerpt',
-			'content_limit'		=> '',
-			'more_text'			=> __( '[Read More...]', 'genesis' )
+			'title'           => '',
+			'posts_cat_1'     => '',
+			'posts_cat_2'     => '',
+			'posts_cat_3'     => '',
+			'posts_cat_4'     => '',
+			'posts_cat_5'     => '',
+			'posts_cat_6'     => '',
+			'posts_cat_7'     => '',
+			'posts_cat_8'     => '',
+			'posts_cat_9'     => '',
+			'posts_cat_10'    => '',
+			'show_image'      => 0,
+			'image_alignment' => '',
+			'image_size'      => '',
+			'show_title'      => 0,
+			'show_byline'     => 0,
+			'post_info'       => '[post_date] ' . __('By', 'genesis') . ' [post_author_posts_link] [post_comments]',
+			'show_content'    => 'excerpt',
+			'content_limit'   => '',
+			'more_text'       => __( '[Read More...]', 'genesis' )
 		) );
 
 		echo $before_widget;
@@ -188,26 +188,26 @@ class Genesis_Tabs_Widget extends WP_Widget {
 
 		// ensure value exists
 		$instance = wp_parse_args( (array) $instance, array(
-			'title'				=> '',
-			'posts_cat_1'		=> '',
-			'posts_cat_2'		=> '',
-			'posts_cat_3'		=> '',
-			'posts_cat_4'		=> '',
-			'posts_cat_5'		=> '',
-			'posts_cat_6'		=> '',
-			'posts_cat_7'		=> '',
-			'posts_cat_8'		=> '',
-			'posts_cat_9'		=> '',
-			'posts_cat_10'		=> '',
-			'show_image'		=> 0,
-			'image_alignment'	=> '',
-			'image_size'		=> '',
-			'show_title'		=> 0,
-			'show_byline'		=> 0,
-			'post_info'			=> '[post_date] ' . __('By', 'genesis') . ' [post_author_posts_link] [post_comments]',
-			'show_content'		=> 'excerpt',
-			'content_limit'		=> '',
-			'more_text'			=> __( '[Read More...]', 'genesis' )
+			'title'           => '',
+			'posts_cat_1'     => '',
+			'posts_cat_2'     => '',
+			'posts_cat_3'     => '',
+			'posts_cat_4'     => '',
+			'posts_cat_5'     => '',
+			'posts_cat_6'     => '',
+			'posts_cat_7'     => '',
+			'posts_cat_8'     => '',
+			'posts_cat_9'     => '',
+			'posts_cat_10'    => '',
+			'show_image'      => 0,
+			'image_alignment' => '',
+			'image_size'      => '',
+			'show_title'      => 0,
+			'show_byline'     => 0,
+			'post_info'       => '[post_date] ' . __('By', 'genesis') . ' [post_author_posts_link] [post_comments]',
+			'show_content'    => 'excerpt',
+			'content_limit'   => '',
+			'more_text'       => __( '[Read More...]', 'genesis' )
 		) );
 ?>
 
