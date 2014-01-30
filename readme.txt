@@ -34,3 +34,4 @@ Note: This plugin only supports Genesis child themes.
 
 = 0.9.2 =
 * Remove rems due to theme conflicts
+* Allow widget title to ouput
