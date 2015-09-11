@@ -6,7 +6,7 @@
 	Author: StudioPress
 	Author URI: http://www.studiopress.com/
 
-	Version: 0.9.2
+	Version: 0.9.3
 
 	License: GNU General Public License v2.0 (or later)
 	License URI: http://www.opensource.org/licenses/gpl-license.php
@@ -90,7 +90,7 @@ class Genesis_Tabs_Widget extends WP_Widget {
 	function __construct() {
 		$widget_ops = array( 'classname' => 'ui-tabs', 'description' => __('Displays featured posts in Tabs', 'genesis') );
 		$control_ops = array( 'width' => 505, 'height' => 350, 'id_base' => 'tabs' );
-		$this->WP_Widget( 'tabs', __( 'Featured Tabs', 'genesis' ), $widget_ops, $control_ops );
+		parent::__construct( 'tabs', __( 'Featured Tabs', 'genesis' ), $widget_ops, $control_ops );
 	}
 
 	/** Widget Output */
