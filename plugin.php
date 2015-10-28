@@ -6,7 +6,7 @@
 	Author: StudioPress
 	Author URI: http://www.studiopress.com/
 
-	Version: 0.9.3
+	Version: 0.9.4
 
 	License: GNU General Public License v2.0 (or later)
 	License URI: http://www.opensource.org/licenses/gpl-license.php
@@ -65,7 +65,11 @@ class Genesis_Tabs {
 	}
 
 	function register_scripts() {
-		wp_enqueue_script( 'jquery-ui-tabs' );
+		
+		if ( ! is_customize_preview() ) {
+			wp_enqueue_script( 'jquery-ui-tabs' );
+		}
+		
 	}
 
 	function register_styles() {
@@ -73,7 +77,13 @@ class Genesis_Tabs {
 	}
 
 	function footer_js() {
-		echo '<script type="text/javascript">jQuery(document).ready(function($) { $(".ui-tabs").tabs(); });</script>' . "\n";
+		
+		if ( ! is_customize_preview() ) {
+			echo '<script type="text/javascript">jQuery(document).ready(function($) { $(".ui-tabs").tabs(); });</script>' . "\n";
+		} else {
+			echo '<script type="text/javascript">jQuery(document).ready(function($) { $(".ui-tabs-nav a").click( function(){ return false; }); });</script>' . "\n";
+		}
+		
 	}
 
 }
@@ -141,12 +151,16 @@ class Genesis_Tabs_Widget extends WP_Widget {
 			foreach ( (array) $cats as $cat ) :
 
 				if ( ! $cat ) continue; // skip iteration if $cat is empty
+				
+				$post_class = '';
 
 				// Custom loop
 				$tabbed_posts = new WP_Query( array( 'cat' => $cat, 'showposts' => 1, 'orderby' => 'date', 'order' => 'DESC' ) );
 				if ( $tabbed_posts->have_posts() ) : while ( $tabbed_posts->have_posts() ) : $tabbed_posts->the_post();
 
-					echo '<div id="cat-' . $cat . '" '; post_class( 'ui-tabs-hide' ); echo '>';
+					echo '<div id="cat-' . $cat . '" '; post_class( $post_class ); echo '>';
+					
+					$post_class = 'ui-tabs-hide';
 
 						if ( ! empty( $instance['show_image'] ) ) :
 							printf( '<a href="%s" title="%s" class="%s">%s</a>', get_permalink(), the_title_attribute( 'echo=0' ), esc_attr( $instance['image_alignment'] ), genesis_get_image( array( 'format' => 'html', 'size' => $instance['image_size'] ) ) );
