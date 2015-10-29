@@ -146,13 +146,13 @@ class Genesis_Tabs_Widget extends WP_Widget {
 					if ( $cat ) echo '<li><a href="#cat-' . $cat . '">' . get_cat_name($cat) . '</a></li>';
 				}
 			echo '</ul>';
+			
+			$post_class = '';
 
 			// Loop through all chosen categories
 			foreach ( (array) $cats as $cat ) :
 
 				if ( ! $cat ) continue; // skip iteration if $cat is empty
-				
-				$post_class = '';
 
 				// Custom loop
 				$tabbed_posts = new WP_Query( array( 'cat' => $cat, 'showposts' => 1, 'orderby' => 'date', 'order' => 'DESC' ) );
