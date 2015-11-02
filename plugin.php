@@ -6,7 +6,7 @@
 	Author: StudioPress
 	Author URI: http://www.studiopress.com/
 
-	Version: 0.9.4
+	Version: 0.9.3
 
 	License: GNU General Public License v2.0 (or later)
 	License URI: http://www.opensource.org/licenses/gpl-license.php
@@ -49,22 +49,18 @@ add_action( 'after_setup_theme', array( 'Genesis_Tabs', 'init' ) );
 class Genesis_Tabs {
 
 	/** Faux Constructor */
-	function init() {
+	static function init() {
 
-		add_action( 'widgets_init', array( __CLASS__, 'register_widget' ) );
-
+		add_action( 'widgets_init'   , array( __CLASS__, 'register_widget' ) );
 		add_action( 'wp_print_styles', array( __CLASS__, 'register_styles' ) );
-		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'register_scripts' ) );
-
-		add_action( 'wp_footer', array( __CLASS__, 'footer_js' ), 20 );
 
 	}
 
-	function register_widget() {
+	static function register_widget() {
 		register_widget( 'Genesis_Tabs_Widget' );
 	}
 
-	function register_scripts() {
+	static function register_scripts() {
 		
 		if ( ! is_customize_preview() ) {
 			wp_enqueue_script( 'jquery-ui-tabs' );
@@ -72,11 +68,11 @@ class Genesis_Tabs {
 		
 	}
 
-	function register_styles() {
+	static function register_styles() {
 		wp_enqueue_style('genesis-tabs-stylesheet', plugins_url( 'style.css', __FILE__ ), false, '');
 	}
 
-	function footer_js() {
+	static function footer_js() {
 		
 		if ( ! is_customize_preview() ) {
 			echo '<script type="text/javascript">jQuery(document).ready(function($) { $(".ui-tabs").tabs(); });</script>' . "\n";
@@ -194,6 +190,11 @@ class Genesis_Tabs_Widget extends WP_Widget {
 
 		echo $after_widget;
 		wp_reset_query();
+		
+		Genesis_Tabs::register_scripts();
+		
+		add_action( 'wp_footer' , array( 'Genesis_Tabs', 'footer_js' ), 20 );
+		
 	}
 
 	/** Update hook */
