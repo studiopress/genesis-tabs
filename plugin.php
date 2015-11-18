@@ -49,31 +49,37 @@ add_action( 'after_setup_theme', array( 'Genesis_Tabs', 'init' ) );
 class Genesis_Tabs {
 
 	/** Faux Constructor */
-	function init() {
+	static function init() {
 
-		add_action( 'widgets_init', array( __CLASS__, 'register_widget' ) );
-
+		add_action( 'widgets_init'   , array( __CLASS__, 'register_widget' ) );
 		add_action( 'wp_print_styles', array( __CLASS__, 'register_styles' ) );
-		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'register_scripts' ) );
-
-		add_action( 'wp_footer', array( __CLASS__, 'footer_js' ), 20 );
 
 	}
 
-	function register_widget() {
+	static function register_widget() {
 		register_widget( 'Genesis_Tabs_Widget' );
 	}
 
-	function register_scripts() {
-		wp_enqueue_script( 'jquery-ui-tabs' );
+	static function register_scripts() {
+		
+		if ( ! is_customize_preview() ) {
+			wp_enqueue_script( 'jquery-ui-tabs' );
+		}
+		
 	}
 
-	function register_styles() {
+	static function register_styles() {
 		wp_enqueue_style('genesis-tabs-stylesheet', plugins_url( 'style.css', __FILE__ ), false, '');
 	}
 
-	function footer_js() {
-		echo '<script type="text/javascript">jQuery(document).ready(function($) { $(".ui-tabs").tabs(); });</script>' . "\n";
+	static function footer_js() {
+		
+		if ( ! is_customize_preview() ) {
+			echo '<script type="text/javascript">jQuery(document).ready(function($) { $(".ui-tabs").tabs(); });</script>' . "\n";
+		} else {
+			echo '<script type="text/javascript">jQuery(document).ready(function($) { $(".ui-tabs-nav a").click( function(){ return false; }); });</script>' . "\n";
+		}
+		
 	}
 
 }
@@ -136,6 +142,8 @@ class Genesis_Tabs_Widget extends WP_Widget {
 					if ( $cat ) echo '<li><a href="#cat-' . $cat . '">' . get_cat_name($cat) . '</a></li>';
 				}
 			echo '</ul>';
+			
+			$post_class = '';
 
 			// Loop through all chosen categories
 			foreach ( (array) $cats as $cat ) :
@@ -146,7 +154,9 @@ class Genesis_Tabs_Widget extends WP_Widget {
 				$tabbed_posts = new WP_Query( array( 'cat' => $cat, 'showposts' => 1, 'orderby' => 'date', 'order' => 'DESC' ) );
 				if ( $tabbed_posts->have_posts() ) : while ( $tabbed_posts->have_posts() ) : $tabbed_posts->the_post();
 
-					echo '<div id="cat-' . $cat . '" '; post_class( 'ui-tabs-hide' ); echo '>';
+					echo '<div id="cat-' . $cat . '" '; post_class( $post_class ); echo '>';
+					
+					$post_class = 'ui-tabs-hide';
 
 						if ( ! empty( $instance['show_image'] ) ) :
 							printf( '<a href="%s" title="%s" class="%s">%s</a>', get_permalink(), the_title_attribute( 'echo=0' ), esc_attr( $instance['image_alignment'] ), genesis_get_image( array( 'format' => 'html', 'size' => $instance['image_size'] ) ) );
@@ -180,6 +190,11 @@ class Genesis_Tabs_Widget extends WP_Widget {
 
 		echo $after_widget;
 		wp_reset_query();
+		
+		Genesis_Tabs::register_scripts();
+		
+		add_action( 'wp_footer' , array( 'Genesis_Tabs', 'footer_js' ), 20 );
+		
 	}
 
 	/** Update hook */
