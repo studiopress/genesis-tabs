@@ -49,7 +49,7 @@ add_action( 'after_setup_theme', array( 'Genesis_Tabs', 'init' ) );
 class Genesis_Tabs {
 
 	/** Faux Constructor */
-	function init() {
+	static function init() {
 
 		add_action( 'widgets_init', array( __CLASS__, 'register_widget' ) );
 
@@ -60,19 +60,19 @@ class Genesis_Tabs {
 
 	}
 
-	function register_widget() {
+	static function register_widget() {
 		register_widget( 'Genesis_Tabs_Widget' );
 	}
 
-	function register_scripts() {
+	static function register_scripts() {
 		wp_enqueue_script( 'jquery-ui-tabs' );
 	}
 
-	function register_styles() {
+	static function register_styles() {
 		wp_enqueue_style('genesis-tabs-stylesheet', plugins_url( 'style.css', __FILE__ ), false, '');
 	}
 
-	function footer_js() {
+	static function footer_js() {
 		echo '<script type="text/javascript">jQuery(document).ready(function($) { $(".ui-tabs").tabs(); });</script>' . "\n";
 	}
 
