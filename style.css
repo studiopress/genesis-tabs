@@ -27,10 +27,16 @@
 }
 	
 .ui-tabs ul.ui-tabs-nav li {
-	display: inline;
-	margin: 0 5px 0 0; 
-	padding: 0;
+	display: inline-block;
+	list-style-type: none;
+	margin: 0 5px -3px 0;
+	padding: 5px 0;
 	text-align: center;
+}
+
+.ui-tabs ul.ui-tabs-nav li::before {
+	content: "";
+	padding: 0;
 }
 	
 .ui-tabs ul.ui-tabs-nav li a {
