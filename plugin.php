@@ -37,9 +37,6 @@ function genesis_tabs_activation_check() {
 
 }
 
-/** Initialize Genesis Tabs */
-add_action( 'after_setup_theme', array( 'Genesis_Tabs', 'init' ) );
-
 /**
  * Simple class to handle all the non-widget aspects of the plugin
  *
@@ -49,30 +46,30 @@ add_action( 'after_setup_theme', array( 'Genesis_Tabs', 'init' ) );
 class Genesis_Tabs {
 
 	/** Faux Constructor */
-	static function init() {
+	public function init() {
 
-		add_action( 'widgets_init', array( __CLASS__, 'register_widget' ) );
+		add_action( 'widgets_init', array( $this, 'register_widget' ) );
 
-		add_action( 'wp_print_styles', array( __CLASS__, 'register_styles' ) );
-		add_action( 'wp_enqueue_scripts', array( __CLASS__, 'register_scripts' ) );
+		add_action( 'wp_print_styles', array( $this, 'register_styles' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_scripts' ) );
 
-		add_action( 'wp_footer', array( __CLASS__, 'footer_js' ), 20 );
+		add_action( 'wp_footer', array( $this, 'footer_js' ), 20 );
 
 	}
 
-	static function register_widget() {
+	public function register_widget() {
 		register_widget( 'Genesis_Tabs_Widget' );
 	}
 
-	static function register_scripts() {
+	public function register_scripts() {
 		wp_enqueue_script( 'jquery-ui-tabs' );
 	}
 
-	static function register_styles() {
+	public function register_styles() {
 		wp_enqueue_style('genesis-tabs-stylesheet', plugins_url( 'style.css', __FILE__ ), false, '');
 	}
 
-	static function footer_js() {
+	public function footer_js() {
 		echo '<script type="text/javascript">jQuery(document).ready(function($) { $(".ui-tabs").tabs(); });</script>' . "\n";
 	}
 
@@ -304,3 +301,25 @@ class Genesis_Tabs_Widget extends WP_Widget {
 	<?php
 	}
 }
+
+/**
+ * Helper function to retrieve the static object without using globals.
+ *
+ * @since 0.9.4
+ */
+function Genesis_Tabs() {
+
+	static $object;
+
+	if ( null == $object ) {
+		$object = new Genesis_Tabs;
+	}
+
+	return $object;
+
+}
+
+/**
+ * Initialize the object on `after_setup_theme`.
+ */
+add_action( 'after_setup_theme', array( Genesis_Tabs(), 'init' ) );
