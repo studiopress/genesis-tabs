@@ -6,7 +6,7 @@
 	Author: StudioPress
 	Author URI: http://www.studiopress.com/
 
-	Version: 0.9.3
+	Version: 0.9.4
 
 	License: GNU General Public License v2.0 (or later)
 	License URI: http://www.opensource.org/licenses/gpl-license.php
@@ -21,7 +21,7 @@ register_activation_hook( __FILE__, 'genesis_tabs_activation_check' );
  */
 function genesis_tabs_activation_check() {
 
-		$latest = '1.7.1';
+		$latest = '2.5.0';
 
 		$theme_info = get_theme_data( TEMPLATEPATH . '/style.css' );
 
@@ -122,7 +122,7 @@ class Genesis_Tabs_Widget extends WP_Widget {
 		) );
 
 		echo $before_widget;
-		
+
 			// Output Widget Title
 			if ( ! empty( $instance['title'] ) )
 				echo $before_title . apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base ) . $after_title;
