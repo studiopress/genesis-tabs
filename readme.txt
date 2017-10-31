@@ -42,4 +42,4 @@ Note: This plugin only supports Genesis child themes.
 = 0.9.4 =
 * Fixed styling issue
 * Fixed strict warnings
-* Discontinue use of deprecated Genesis function
+* Discontinue use of deprecated functions
