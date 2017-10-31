@@ -21,16 +21,15 @@ register_activation_hook( __FILE__, 'genesis_tabs_activation_check' );
  */
 function genesis_tabs_activation_check() {
 
-		$latest = '2.5.0';
-
-		$theme_info = get_theme_data( TEMPLATEPATH . '/style.css' );
+		$latest  = '2.5.0';
+		$genesis = wp_get_theme( 'genesis' );
 
 		if ( 'genesis' != basename( TEMPLATEPATH ) ) {
 	        deactivate_plugins( plugin_basename( __FILE__ ) ); /** Deactivate ourself */
 			wp_die( sprintf( __( 'Sorry, you can\'t activate unless you have installed <a href="%s">Genesis</a>', 'apl' ), 'http://www.studiopress.com/themes/genesis' ) );
 		}
 
-		if ( version_compare( $theme_info['Version'], $latest, '<' ) ) {
+		if ( version_compare( $genesis->get( 'Version' ), $latest, '<' ) ) {
 			deactivate_plugins( plugin_basename( __FILE__ ) ); /** Deactivate ourself */
 			wp_die( sprintf( __( 'Sorry, you cannot activate without <a href="%s">Genesis %s</a> or greater', 'apl' ), 'http://www.studiopress.com/support/showthread.php?t=19576', $latest ) );
 		}
