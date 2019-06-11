@@ -43,7 +43,7 @@ class Genesis_Tabs {
 	 * Register Styles
 	 */
 	public function register_styles() {
-		wp_enqueue_style( 'genesis-tabs-stylesheet', plugins_url( 'style.css', __FILE__ ), true, '' );
+		wp_enqueue_style( 'genesis-tabs-stylesheet', plugins_url( 'style.css', __FILE__ ), false, PLUGIN_VERSION );
 	}
 
 	/**
