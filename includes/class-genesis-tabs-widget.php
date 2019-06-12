@@ -39,7 +39,7 @@ class Genesis_Tabs_Widget extends WP_Widget {
 
 		/* defaults */
 		$instance = wp_parse_args(
-			(array) $args['instance'],
+			(array) $instance,
 			array(
 				'title'           => '',
 				'posts_cat_1'     => '',
@@ -64,11 +64,11 @@ class Genesis_Tabs_Widget extends WP_Widget {
 			)
 		);
 
-		echo esc_attr( $args['before_widget'] );
+		echo wp_kses_post( $args['before_widget'] );
 
 			/* Output Widget Title */
 		if ( ! empty( $instance['title'] ) ) {
-			echo esc_attr( $args['before_title'] . apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base ) . $args['after_title'] );
+			echo wp_kses_post( $args['before_title'] . apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base ) . $args['after_title'] );
 		}
 
 			/* Pull the chosen categories into an array */
@@ -151,7 +151,7 @@ endif;
 
 			endforeach;
 
-		echo esc_attr( $args['after_widget'] );
+		echo wp_kses_post( $args['after_widget'] );
 		wp_reset_postdata();
 	}
 
