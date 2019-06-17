@@ -37,7 +37,7 @@ class Genesis_Tabs_Widget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 
-		// Defaults.
+		// Defaults for a new widget.
 		$instance = wp_parse_args(
 			(array) $instance,
 			array(

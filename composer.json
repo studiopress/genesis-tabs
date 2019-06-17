@@ -1,7 +1,7 @@
 {
 	"name": "studiopress/genesis-tabs",
 	"type": "wordpress-plugin",
-	"description": "GENESIS TABS PLUGIN DESCRIPTION HERE.",
+	"description": "This plugin allows you to create a tabbed section, via a widget, that can display the featured image, along with the title and excerpt from each post.",
 	"homepage": "https://github.com/studiopress/genesis-tabs",
 	"license": "GPL-2.0-or-later",
 	"require": {
