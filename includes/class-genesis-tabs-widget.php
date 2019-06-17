@@ -37,7 +37,7 @@ class Genesis_Tabs_Widget extends WP_Widget {
 	 */
 	public function widget( $args, $instance ) {
 
-		/* defaults */
+		// Defaults.
 		$instance = wp_parse_args(
 			(array) $instance,
 			array(
@@ -66,16 +66,16 @@ class Genesis_Tabs_Widget extends WP_Widget {
 
 		echo wp_kses_post( $args['before_widget'] );
 
-			/* Output Widget Title */
+		// Output Widget Title.
 		if ( ! empty( $instance['title'] ) ) {
 			echo wp_kses_post( $args['before_title'] . apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base ) . $args['after_title'] );
 		}
 
-			/* Pull the chosen categories into an array */
-			$cats = array( $instance['posts_cat_1'], $instance['posts_cat_2'], $instance['posts_cat_3'], $instance['posts_cat_4'], $instance['posts_cat_5'], $instance['posts_cat_6'], $instance['posts_cat_7'], $instance['posts_cat_8'] );
+		// Pull the chosen categories into an array.
+		$cats = array( $instance['posts_cat_1'], $instance['posts_cat_2'], $instance['posts_cat_3'], $instance['posts_cat_4'], $instance['posts_cat_5'], $instance['posts_cat_6'], $instance['posts_cat_7'], $instance['posts_cat_8'] );
 
-			/* Display the tab links */
-			echo '<ul class="ui-tabs-nav">';
+		// Display the tab links.
+		echo '<ul class="ui-tabs-nav">';
 		foreach ( (array) $cats as $cat ) {
 			if ( $cat ) {
 				echo '<li><a href="#cat-' . esc_attr( $cat ) . '">' . esc_html( get_cat_name( $cat ) ) . '</a></li>';
@@ -83,14 +83,14 @@ class Genesis_Tabs_Widget extends WP_Widget {
 		}
 			echo '</ul>';
 
-			/* Loop through all chosen categories */
-		foreach ( (array) $cats as $cat ) :
+		// Loop through all chosen categories.
+		foreach ( (array) $cats as $cat ) {
 
 			if ( ! $cat ) {
-				continue; /* skip iteration if $cat is empty */
+				continue; // Skip iteration if $cat is empty.
 			}
 
-			/* Custom loop */
+			// Custom loop.
 			$tabbed_posts = new WP_Query(
 				array(
 					'cat'       => $cat,
@@ -99,15 +99,15 @@ class Genesis_Tabs_Widget extends WP_Widget {
 					'order'     => 'DESC',
 				)
 			);
-			if ( $tabbed_posts->have_posts() ) :
-				while ( $tabbed_posts->have_posts() ) :
+			if ( $tabbed_posts->have_posts() ) {
+				while ( $tabbed_posts->have_posts() ) {
 					$tabbed_posts->the_post();
 
 					echo '<div id="cat-' . esc_attr( $cat ) . '" ';
 					post_class( 'ui-tabs-hide' );
 					echo '>';
 
-					if ( ! empty( $instance['show_image'] ) ) :
+					if ( ! empty( $instance['show_image'] ) ) {
 						printf(
 							'<a href="%s" title="%s" class="%s">%s</a>',
 							esc_attr( get_permalink() ),
@@ -122,34 +122,31 @@ class Genesis_Tabs_Widget extends WP_Widget {
 								)
 							)
 						);
-						endif;
+					}
 
-					if ( ! empty( $instance['show_title'] ) ) :
+					if ( ! empty( $instance['show_title'] ) ) {
 						printf( '<h2><a href="%s" title="%s">%s</a></h2>', esc_attr( get_permalink() ), the_title_attribute( 'echo=0' ), esc_html( get_the_title() ) );
-						endif;
+					}
 
-					if ( ! empty( $instance['show_byline'] ) && ! empty( $instance['post_info'] ) ) :
+					if ( ! empty( $instance['show_byline'] ) && ! empty( $instance['post_info'] ) ) {
 						printf( '<p class="byline post-info">%s</p>', do_shortcode( esc_html( $instance['post_info'] ) ) );
-						endif;
+					}
 
-					if ( ! empty( $instance['show_content'] ) ) :
+					if ( ! empty( $instance['show_content'] ) ) {
 
-						if ( 'excerpt' === $instance['show_content'] ) :
+						if ( 'excerpt' === $instance['show_content'] ) {
 							the_excerpt();
-							elseif ( 'content-limit' === $instance['show_content'] ) :
+						} elseif ( 'content-limit' === $instance['show_content'] ) {
 								the_content_limit( (int) $instance['content_limit'], esc_html( $instance['more_text'] ) );
-							else :
+						} else {
 								the_content( esc_html( $instance['more_text'] ) );
-							endif;
-
-										endif;
+						}
+					}
 
 					echo '</div><!--end post_class()-->' . "\n\n";
-
-				endwhile;
-endif;
-
-			endforeach;
+				}
+			}
+		}
 
 		echo wp_kses_post( $args['after_widget'] );
 		wp_reset_postdata();
@@ -172,7 +169,7 @@ endif;
 	 */
 	public function form( $instance ) {
 
-		/* ensure value exists */
+		// Ensure value exists.
 		$instance = wp_parse_args(
 			(array) $instance,
 			array(
@@ -374,9 +371,9 @@ endif;
 		<select id="<?php echo esc_attr( $this->get_field_id( 'image_size' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image_size' ) ); ?>">
 			<option value="thumbnail">thumbnail (<?php echo esc_html( get_option( 'thumbnail_size_w' ) ); ?>x<?php echo esc_html( get_option( 'thumbnail_size_h' ) ); ?>)</option>
 			<?php
-			foreach ( (array) $sizes as $name => $size ) :
+			foreach ( (array) $sizes as $name => $size ) {
 				echo '<option value="' . esc_attr( $name ) . '" ' . selected( $name, $instance['image_size'], false ) . '>' . esc_html( $name ) . ' (' . esc_html( $size['width'] ) . 'x' . esc_html( $size['height'] ) . ')</option>';
-			endforeach;
+			}
 			?>
 		</select></p>
 

@@ -28,13 +28,13 @@ function genesis_tabs_activation_check() {
 
 	if ( 'genesis' !== basename( get_template_directory() ) ) {
 		deactivate_plugins( plugin_basename( __FILE__ ) ); /** Deactivate ourself */
-		/* Translators: The string is a url to the genesis framework. */
+		// Translators: The string is a url to the genesis framework.
 		wp_die( sprintf( esc_html( __( 'Sorry, you can\'t activate unless you have installed <a href="%s">Genesis</a>', 'apl' ), 'http://www.studiopress.com/themes/genesis' ) ) );
 	}
 
 	if ( version_compare( $genesis->get( 'Version' ), $latest, '<' ) ) {
-		deactivate_plugins( plugin_basename( __FILE__ ) ); /** Deactivate ourself */
-		/* Translators: String 1 is a url to the genesis framework. String 2 is the lowest version number required. */
+		deactivate_plugins( plugin_basename( __FILE__ ) ); // Deactivate ourself.
+		// Translators: String 1 is a url to the genesis framework. String 2 is the lowest version number required.
 		wp_die( sprintf( esc_html( __( 'Sorry, you cannot activate without <a href="%1$s">Genesis %2$s</a> or greater', 'apl' ), 'http://www.studiopress.com/support/showthread.php?t=19576', esc_attr( $latest ) ) ) );
 	}
 
