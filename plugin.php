@@ -5,6 +5,7 @@
  * Description: Genesis Tabs extends the Featured Post widget to create a simple tabbed area.
  * Author: StudioPress
  * Author URI: http://www.studiopress.com/
+ * Text Domain: genesis-tabs
  *
  * Version: 0.9.4
  *

@@ -19,14 +19,21 @@ class Genesis_Tabs_Widget extends WP_Widget {
 	public function __construct() {
 		$widget_ops  = array(
 			'classname'   => 'ui-tabs',
-			'description' => __( 'Displays featured posts in Tabs', 'genesis' ),
+			'description' => __( 'Displays featured posts in Tabs', 'genesis-tabs' ),
 		);
 		$control_ops = array(
 			'width'   => 505,
 			'height'  => 350,
 			'id_base' => 'tabs',
 		);
-		parent::__construct( 'tabs', __( 'Featured Tabs', 'genesis' ), $widget_ops, $control_ops );
+		parent::__construct( 'tabs', __( 'Featured Tabs', 'genesis-tabs' ), $widget_ops, $control_ops );
+	}
+
+	/**
+	 * Load textdomain.
+	 */
+	public function load_textdomain() {
+		load_plugin_textdomain( 'genesis-tabs', false, SIMPLE_URLS_DIR . '/languages' );
 	}
 
 	/**
@@ -57,10 +64,10 @@ class Genesis_Tabs_Widget extends WP_Widget {
 				'image_size'      => '',
 				'show_title'      => 0,
 				'show_byline'     => 0,
-				'post_info'       => '[post_date] ' . __( 'By', 'genesis' ) . ' [post_author_posts_link] [post_comments]',
+				'post_info'       => '[post_date] ' . __( 'By', 'genesis-tabs' ) . ' [post_author_posts_link] [post_comments]',
 				'show_content'    => 'excerpt',
 				'content_limit'   => '',
-				'more_text'       => __( '[Read More...]', 'genesis' ),
+				'more_text'       => __( '[Read More...]', 'genesis-tabs' ),
 			)
 		);
 
@@ -113,7 +120,7 @@ class Genesis_Tabs_Widget extends WP_Widget {
 							esc_attr( get_permalink() ),
 							the_title_attribute( 'echo=0' ),
 							esc_attr( $instance['image_alignment'] ),
-							esc_html(
+							wp_kses_post(
 								genesis_get_image(
 									array(
 										'format' => 'html',
@@ -189,15 +196,15 @@ class Genesis_Tabs_Widget extends WP_Widget {
 				'image_size'      => '',
 				'show_title'      => 0,
 				'show_byline'     => 0,
-				'post_info'       => '[post_date] ' . __( 'By', 'genesis' ) . ' [post_author_posts_link] [post_comments]',
+				'post_info'       => '[post_date] ' . __( 'By', 'genesis-tabs' ) . ' [post_author_posts_link] [post_comments]',
 				'show_content'    => 'excerpt',
 				'content_limit'   => '',
-				'more_text'       => __( '[Read More...]', 'genesis' ),
+				'more_text'       => __( '[Read More...]', 'genesis-tabs' ),
 			)
 		);
 		?>
 
-	<p><label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title', 'genesis' ); ?>:</label>
+	<p><label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title', 'genesis-tabs' ); ?>:</label>
 	<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" value="<?php echo esc_attr( $instance['title'] ); ?>" style="width:95%;" /></p>
 
 	<div class="genesis-widget-column">
@@ -214,7 +221,7 @@ class Genesis_Tabs_Widget extends WP_Widget {
 				'selected'        => $instance['posts_cat_1'],
 				'orderby'         => 'Name',
 				'hierarchical'    => 1,
-				'show_option_all' => __( '- None Selected -', 'genesis' ),
+				'show_option_all' => __( '- None Selected -', 'genesis-tabs' ),
 				'hide_empty'      => '0',
 			)
 		);
@@ -229,7 +236,7 @@ class Genesis_Tabs_Widget extends WP_Widget {
 				'selected'        => $instance['posts_cat_2'],
 				'orderby'         => 'Name',
 				'hierarchical'    => 1,
-				'show_option_all' => __( '- None Selected -', 'genesis' ),
+				'show_option_all' => __( '- None Selected -', 'genesis-tabs' ),
 				'hide_empty'      => '0',
 			)
 		);
@@ -244,7 +251,7 @@ class Genesis_Tabs_Widget extends WP_Widget {
 				'selected'        => $instance['posts_cat_3'],
 				'orderby'         => 'Name',
 				'hierarchical'    => 1,
-				'show_option_all' => __( '- None Selected -', 'genesis' ),
+				'show_option_all' => __( '- None Selected -', 'genesis-tabs' ),
 				'hide_empty'      => '0',
 			)
 		);
@@ -259,7 +266,7 @@ class Genesis_Tabs_Widget extends WP_Widget {
 				'selected'        => $instance['posts_cat_4'],
 				'orderby'         => 'Name',
 				'hierarchical'    => 1,
-				'show_option_all' => __( '- None Selected -', 'genesis' ),
+				'show_option_all' => __( '- None Selected -', 'genesis-tabs' ),
 				'hide_empty'      => '0',
 			)
 		);
@@ -274,7 +281,7 @@ class Genesis_Tabs_Widget extends WP_Widget {
 				'selected'        => $instance['posts_cat_5'],
 				'orderby'         => 'Name',
 				'hierarchical'    => 1,
-				'show_option_all' => __( '- None Selected -', 'genesis' ),
+				'show_option_all' => __( '- None Selected -', 'genesis-tabs' ),
 				'hide_empty'      => '0',
 			)
 		);
@@ -289,7 +296,7 @@ class Genesis_Tabs_Widget extends WP_Widget {
 				'selected'        => $instance['posts_cat_6'],
 				'orderby'         => 'Name',
 				'hierarchical'    => 1,
-				'show_option_all' => __( '- None Selected -', 'genesis' ),
+				'show_option_all' => __( '- None Selected -', 'genesis-tabs' ),
 				'hide_empty'      => '0',
 			)
 		);
@@ -304,7 +311,7 @@ class Genesis_Tabs_Widget extends WP_Widget {
 				'selected'        => $instance['posts_cat_7'],
 				'orderby'         => 'Name',
 				'hierarchical'    => 1,
-				'show_option_all' => __( '- None Selected -', 'genesis' ),
+				'show_option_all' => __( '- None Selected -', 'genesis-tabs' ),
 				'hide_empty'      => '0',
 			)
 		);
@@ -319,7 +326,7 @@ class Genesis_Tabs_Widget extends WP_Widget {
 				'selected'        => $instance['posts_cat_8'],
 				'orderby'         => 'Name',
 				'hierarchical'    => 1,
-				'show_option_all' => __( '- None Selected -', 'genesis' ),
+				'show_option_all' => __( '- None Selected -', 'genesis-tabs' ),
 				'hide_empty'      => '0',
 			)
 		);
@@ -334,7 +341,7 @@ class Genesis_Tabs_Widget extends WP_Widget {
 				'selected'        => $instance['posts_cat_9'],
 				'orderby'         => 'Name',
 				'hierarchical'    => 1,
-				'show_option_all' => __( '- None Selected -', 'genesis' ),
+				'show_option_all' => __( '- None Selected -', 'genesis-tabs' ),
 				'hide_empty'      => '0',
 			)
 		);
@@ -349,7 +356,7 @@ class Genesis_Tabs_Widget extends WP_Widget {
 				'selected'        => $instance['posts_cat_10'],
 				'orderby'         => 'Name',
 				'hierarchical'    => 1,
-				'show_option_all' => __( '- None Selected -', 'genesis' ),
+				'show_option_all' => __( '- None Selected -', 'genesis-tabs' ),
 				'hide_empty'      => '0',
 			)
 		);
@@ -364,9 +371,9 @@ class Genesis_Tabs_Widget extends WP_Widget {
 
 		<div class="genesis-widget-column-box genesis-widget-column-box-top">
 
-		<p><input id="<?php echo esc_attr( $this->get_field_id( 'show_image' ) ); ?>" type="checkbox" name="<?php echo esc_attr( $this->get_field_name( 'show_image' ) ); ?>" value="1" <?php checked( 1, $instance['show_image'] ); ?>/> <label for="<?php echo esc_attr( $this->get_field_id( 'show_image' ) ); ?>"><?php esc_html_e( 'Show Featured Image', 'genesis' ); ?></label></p>
+		<p><input id="<?php echo esc_attr( $this->get_field_id( 'show_image' ) ); ?>" type="checkbox" name="<?php echo esc_attr( $this->get_field_name( 'show_image' ) ); ?>" value="1" <?php checked( 1, $instance['show_image'] ); ?>/> <label for="<?php echo esc_attr( $this->get_field_id( 'show_image' ) ); ?>"><?php esc_html_e( 'Show Featured Image', 'genesis-tabs' ); ?></label></p>
 
-		<p><label for="<?php echo esc_attr( $this->get_field_id( 'image_size' ) ); ?>"><?php esc_html_e( 'Image Size', 'genesis' ); ?>:</label>
+		<p><label for="<?php echo esc_attr( $this->get_field_id( 'image_size' ) ); ?>"><?php esc_html_e( 'Image Size', 'genesis-tabs' ); ?>:</label>
 		<?php $sizes = wp_get_additional_image_sizes(); ?>
 		<select id="<?php echo esc_attr( $this->get_field_id( 'image_size' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image_size' ) ); ?>">
 			<option value="thumbnail">thumbnail (<?php echo esc_html( get_option( 'thumbnail_size_w' ) ); ?>x<?php echo esc_html( get_option( 'thumbnail_size_h' ) ); ?>)</option>
@@ -377,36 +384,36 @@ class Genesis_Tabs_Widget extends WP_Widget {
 			?>
 		</select></p>
 
-		<p><label for="<?php echo esc_attr( $this->get_field_id( 'image_alignment' ) ); ?>"><?php esc_html_e( 'Image Alignment', 'genesis' ); ?>:</label>
+		<p><label for="<?php echo esc_attr( $this->get_field_id( 'image_alignment' ) ); ?>"><?php esc_html_e( 'Image Alignment', 'genesis-tabs' ); ?>:</label>
 		<select id="<?php echo esc_attr( $this->get_field_id( 'image_alignment' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'image_alignment' ) ); ?>">
-			<option value="">- <?php esc_html_e( 'None', 'genesis' ); ?> -</option>
-			<option value="alignleft" <?php selected( 'alignleft', $instance['image_alignment'] ); ?>><?php esc_html_e( 'Left', 'genesis' ); ?></option>
-			<option value="alignright" <?php selected( 'alignright', $instance['image_alignment'] ); ?>><?php esc_html_e( 'Right', 'genesis' ); ?></option>
+			<option value="">- <?php esc_html_e( 'None', 'genesis-tabs' ); ?> -</option>
+			<option value="alignleft" <?php selected( 'alignleft', $instance['image_alignment'] ); ?>><?php esc_html_e( 'Left', 'genesis-tabs' ); ?></option>
+			<option value="alignright" <?php selected( 'alignright', $instance['image_alignment'] ); ?>><?php esc_html_e( 'Right', 'genesis-tabs' ); ?></option>
 		</select></p>
 
 		</div>
 
 		<div class="genesis-widget-column-box">
 
-		<p><input id="<?php echo esc_attr( $this->get_field_id( 'show_title' ) ); ?>" type="checkbox" name="<?php echo esc_attr( $this->get_field_name( 'show_title' ) ); ?>" value="1" <?php checked( 1, $instance['show_title'] ); ?>/> <label for="<?php echo esc_attr( $this->get_field_id( 'show_title' ) ); ?>"><?php esc_html_e( 'Show Post Title', 'genesis' ); ?></label></p>
+		<p><input id="<?php echo esc_attr( $this->get_field_id( 'show_title' ) ); ?>" type="checkbox" name="<?php echo esc_attr( $this->get_field_name( 'show_title' ) ); ?>" value="1" <?php checked( 1, $instance['show_title'] ); ?>/> <label for="<?php echo esc_attr( $this->get_field_id( 'show_title' ) ); ?>"><?php esc_html_e( 'Show Post Title', 'genesis-tabs' ); ?></label></p>
 
-		<p><input id="<?php echo esc_attr( $this->get_field_id( 'show_byline' ) ); ?>" type="checkbox" name="<?php echo esc_attr( $this->get_field_name( 'show_byline' ) ); ?>" value="1" <?php checked( 1, $instance['show_byline'] ); ?>/> <label for="<?php echo esc_attr( $this->get_field_id( 'show_byline' ) ); ?>"><?php esc_html_e( 'Show Post Info', 'genesis' ); ?></label>
+		<p><input id="<?php echo esc_attr( $this->get_field_id( 'show_byline' ) ); ?>" type="checkbox" name="<?php echo esc_attr( $this->get_field_name( 'show_byline' ) ); ?>" value="1" <?php checked( 1, $instance['show_byline'] ); ?>/> <label for="<?php echo esc_attr( $this->get_field_id( 'show_byline' ) ); ?>"><?php esc_html_e( 'Show Post Info', 'genesis-tabs' ); ?></label>
 
 		<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'post_info' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'post_info' ) ); ?>" value="<?php echo esc_attr( $instance['post_info'] ); ?>" class="widefat" />
 
 		</p>
 
-		<p><label for="<?php echo esc_attr( $this->get_field_id( 'show_content' ) ); ?>"><?php esc_html_e( 'Content Type', 'genesis' ); ?>:</label>
+		<p><label for="<?php echo esc_attr( $this->get_field_id( 'show_content' ) ); ?>"><?php esc_html_e( 'Content Type', 'genesis-tabs' ); ?>:</label>
 		<select id="<?php echo esc_attr( $this->get_field_id( 'show_content' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'show_content' ) ); ?>">
-			<option value="content" <?php selected( 'content', $instance['show_content'] ); ?>><?php esc_html_e( 'Show Content', 'genesis' ); ?></option>
-			<option value="excerpt" <?php selected( 'excerpt', $instance['show_content'] ); ?>><?php esc_html_e( 'Show Excerpt', 'genesis' ); ?></option>
-			<option value="content-limit" <?php selected( 'content-limit', $instance['show_content'] ); ?>><?php esc_html_e( 'Show Content Limit', 'genesis' ); ?></option>
-			<option value="" <?php selected( '', $instance['show_content'] ); ?>><?php esc_html_e( 'No Content', 'genesis' ); ?></option>
+			<option value="content" <?php selected( 'content', $instance['show_content'] ); ?>><?php esc_html_e( 'Show Content', 'genesis-tabs' ); ?></option>
+			<option value="excerpt" <?php selected( 'excerpt', $instance['show_content'] ); ?>><?php esc_html_e( 'Show Excerpt', 'genesis-tabs' ); ?></option>
+			<option value="content-limit" <?php selected( 'content-limit', $instance['show_content'] ); ?>><?php esc_html_e( 'Show Content Limit', 'genesis-tabs' ); ?></option>
+			<option value="" <?php selected( '', $instance['show_content'] ); ?>><?php esc_html_e( 'No Content', 'genesis-tabs' ); ?></option>
 		</select>
 
-		<br /><label for="<?php echo esc_attr( $this->get_field_id( 'content_limit' ) ); ?>"><?php esc_html_e( 'Limit content to', 'genesis' ); ?></label> <input type="text" id="<?php echo esc_attr( $this->get_field_id( 'image_alignment' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'content_limit' ) ); ?>" value="<?php echo esc_attr( intval( $instance['content_limit'] ) ); ?>" size="3" /> <?php esc_html_e( 'characters', 'genesis' ); ?></p>
+		<br /><label for="<?php echo esc_attr( $this->get_field_id( 'content_limit' ) ); ?>"><?php esc_html_e( 'Limit content to', 'genesis-tabs' ); ?></label> <input type="text" id="<?php echo esc_attr( $this->get_field_id( 'image_alignment' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'content_limit' ) ); ?>" value="<?php echo esc_attr( intval( $instance['content_limit'] ) ); ?>" size="3" /> <?php esc_html_e( 'characters', 'genesis-tabs' ); ?></p>
 
-		<p><label for="<?php echo esc_attr( $this->get_field_id( 'more_text' ) ); ?>"><?php esc_html_e( 'More Text (if applicable)', 'genesis' ); ?>:</label>
+		<p><label for="<?php echo esc_attr( $this->get_field_id( 'more_text' ) ); ?>"><?php esc_html_e( 'More Text (if applicable)', 'genesis-tabs' ); ?>:</label>
 		<input type="text" id="<?php echo esc_attr( $this->get_field_id( 'more_text' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'more_text' ) ); ?>" value="<?php echo esc_attr( $instance['more_text'] ); ?>" /></p>
 
 		</div>
