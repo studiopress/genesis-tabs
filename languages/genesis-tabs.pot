@@ -1,38 +1,137 @@
-# Copyright (C) 2018 StudioPress
-# This file is distributed under the GNU General Public License v2.0 (or later).
+#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Genesis Tabs 0.9.4\n"
-"Report-Msgid-Bugs-To: StudioPress <translations@studiopress.com>\n"
-"POT-Creation-Date: 2019-06-17 3:33:00+00:00\n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"Project-Id-Version: Genesis Tabs\n"
+"POT-Creation-Date: 2019-06-18 10:42-0400\n"
+"PO-Revision-Date: 2019-06-18 10:31-0400\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2018-MO-DA HO:MI+ZONE\n"
-"Last-Translator: StudioPress <translations@studiopress.com>\n"
-"Language-Team: English <translations@studiopress.com>\n"
-"X-Generator: grunt-wp-i18n 0.4.4\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Poedit-Basepath: .\n"
-"X-Poedit-Language: English\n"
-"X-Poedit-Country: UNITED STATES\n"
-"X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-KeywordsList: "
-"__;_e;_x:1,2c;_ex:1,2c;_n:1,2;_nx:1,2,4c;_n_noop:1,2;_nx_noop:1,2,3c;esc_"
-"attr__;esc_html__;esc_attr_e;esc_html_e;esc_attr_x:1,2c;esc_html_x:1,2c;\n"
-"X-Poedit-Bookmarks: \n"
+"X-Generator: Poedit 2.2.1\n"
+"X-Poedit-Basepath: ..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: plugin.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
 "X-Poedit-SearchPath-0: .\n"
-"X-Textdomain-Support: yes\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+#: includes/class-genesis-tabs-widget.php:22
+msgid "Displays featured posts in Tabs"
+msgstr ""
+
+#: includes/class-genesis-tabs-widget.php:29
+msgid "Featured Tabs"
+msgstr ""
+
+#: includes/class-genesis-tabs-widget.php:67
+#: includes/class-genesis-tabs-widget.php:199
+msgid "By"
+msgstr ""
+
+#: includes/class-genesis-tabs-widget.php:70
+#: includes/class-genesis-tabs-widget.php:202
+msgid "[Read More...]"
+msgstr ""
+
+#: includes/class-genesis-tabs-widget.php:207
+msgid "Title"
+msgstr ""
+
+#: includes/class-genesis-tabs-widget.php:224
+#: includes/class-genesis-tabs-widget.php:239
+#: includes/class-genesis-tabs-widget.php:254
+#: includes/class-genesis-tabs-widget.php:269
+#: includes/class-genesis-tabs-widget.php:284
+#: includes/class-genesis-tabs-widget.php:299
+#: includes/class-genesis-tabs-widget.php:314
+#: includes/class-genesis-tabs-widget.php:329
+#: includes/class-genesis-tabs-widget.php:344
+#: includes/class-genesis-tabs-widget.php:359
+msgid "- None Selected -"
+msgstr ""
+
+#: includes/class-genesis-tabs-widget.php:374
+msgid "Show Featured Image"
+msgstr ""
+
+#: includes/class-genesis-tabs-widget.php:376
+msgid "Image Size"
+msgstr ""
+
+#: includes/class-genesis-tabs-widget.php:387
+msgid "Image Alignment"
+msgstr ""
+
+#: includes/class-genesis-tabs-widget.php:389
+msgid "None"
+msgstr ""
+
+#: includes/class-genesis-tabs-widget.php:390
+msgid "Left"
+msgstr ""
+
+#: includes/class-genesis-tabs-widget.php:391
+msgid "Right"
+msgstr ""
+
+#: includes/class-genesis-tabs-widget.php:398
+msgid "Show Post Title"
+msgstr ""
+
+#: includes/class-genesis-tabs-widget.php:400
+msgid "Show Post Info"
+msgstr ""
+
+#: includes/class-genesis-tabs-widget.php:406
+msgid "Content Type"
+msgstr ""
+
+#: includes/class-genesis-tabs-widget.php:408
+msgid "Show Content"
+msgstr ""
+
+#: includes/class-genesis-tabs-widget.php:409
+msgid "Show Excerpt"
+msgstr ""
+
+#: includes/class-genesis-tabs-widget.php:410
+msgid "Show Content Limit"
+msgstr ""
+
+#: includes/class-genesis-tabs-widget.php:411
+msgid "No Content"
+msgstr ""
+
+#: includes/class-genesis-tabs-widget.php:414
+msgid "Limit content to"
+msgstr ""
+
+#: includes/class-genesis-tabs-widget.php:414
+msgid "characters"
+msgstr ""
+
+#: includes/class-genesis-tabs-widget.php:416
+msgid "More Text (if applicable)"
+msgstr ""
 
 #: plugin.php:33
+#, php-format
 msgid ""
-"Sorry, you can't activate unless you have installed <a "
-"href=\"%s\">Genesis</a>"
+"Sorry, you can't activate unless you have installed <a href=\"%s\">Genesis</"
+"a>"
 msgstr ""
 
 #: plugin.php:39
+#, php-format
 msgid ""
-"Sorry, you cannot activate without <a href="%1$s">Genesis %2$s</a> or greater"
+"Sorry, you cannot activate without <a href=\"%1$s\">Genesis %2$s</a> or "
+"greater"
 msgstr ""
 
 #. Plugin Name of the plugin/theme
@@ -40,11 +139,12 @@ msgid "Genesis Tabs"
 msgstr ""
 
 #. Plugin URI of the plugin/theme
-msgid "http://www.studiopress.com/plugins/genesis-tabs"
+msgid "http://wordpress.org/plugins/genesis-tabs/"
 msgstr ""
 
 #. Description of the plugin/theme
-msgid "Genesis Tabs extends the Featured Post widget to create a simple tabbed area."
+msgid ""
+"Genesis Tabs extends the Featured Post widget to create a simple tabbed area."
 msgstr ""
 
 #. Author of the plugin/theme

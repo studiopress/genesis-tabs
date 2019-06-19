@@ -8,7 +8,7 @@
 /**
  * Widget Class. Handles the widget form and output.
  *
- * @package Genesis_Tabs
+ * @package genesis-tabs
  * @since 0.9.0
  */
 class Genesis_Tabs_Widget extends WP_Widget {
