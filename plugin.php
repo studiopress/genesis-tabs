@@ -7,10 +7,10 @@
  * Author URI: http://www.studiopress.com/
  * Text Domain: genesis-tabs
  *
- * Version: 0.9.4
+ * Version: 1.0.0
  *
  * License: GNU General Public License v2.0 (or later)
- * License URI: http://www.opensource.org/licenses/gpl-license.php
+ * License URI: https://opensource.org/licenses/gpl-license.php
  *
  * @package genesis-tabs
  */
