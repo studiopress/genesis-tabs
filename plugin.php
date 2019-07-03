@@ -41,7 +41,7 @@ function genesis_tabs_activation_check() {
 
 }
 
-define( 'GENESIS_TABS_PLUGIN_VERSION', '5.2.1' );
+define( 'GENESIS_TABS_PLUGIN_VERSION', '1.0.0' );
 
 define( 'GENESIS_TABS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'GENESIS_TABS_URL', plugins_url( '', __FILE__ ) );
