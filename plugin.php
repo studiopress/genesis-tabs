@@ -7,7 +7,7 @@
  * Author URI: http://www.studiopress.com/
  * Text Domain: genesis-tabs
  *
- * Version: 1.0.0
+ * Version: 1.0.1
  *
  * License: GNU General Public License v2.0 (or later)
  * License URI: https://opensource.org/licenses/gpl-license.php
@@ -41,7 +41,7 @@ function genesis_tabs_activation_check() {
 
 }
 
-define( 'GENESIS_TABS_PLUGIN_VERSION', '1.0.0' );
+define( 'GENESIS_TABS_PLUGIN_VERSION', '1.0.1' );
 
 define( 'GENESIS_TABS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'GENESIS_TABS_URL', plugins_url( '', __FILE__ ) );

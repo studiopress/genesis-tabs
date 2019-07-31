@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: tabs, ui-tabs, genesis, genesiswp, studiopress
 Requires at least: 3.7
 Tested up to: 5.2.2
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 
 This plugin allows you to create a tabbed section, via a widget, that can display the featured image, along with the title and excerpt from each post.
 
