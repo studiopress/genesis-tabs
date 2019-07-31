@@ -1,5 +1,5 @@
 === Plugin Name ===
-Contributors: nathanrice, studiopress, wpmuguru, marksabbath, mikehale, dreamwhisper, mikelittle
+Contributors: nathanrice, studiopress, wpmuguru, marksabbath, mikehale, dreamwhisper, mikelittle, ethanschaffer/
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=5553118
 Tags: tabs, ui-tabs, genesis, genesiswp, studiopress
 Requires at least: 3.7
