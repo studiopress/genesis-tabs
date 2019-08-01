@@ -5,7 +5,7 @@
 	"homepage": "https://github.com/studiopress/genesis-tabs",
 	"license": "GPL-2.0-or-later",
 	"require": {
-		"php": "^5.3 || ^7",
+		"php": "^5.6 || ^7",
 		"composer/installers": "^1"
 	},
 	"require-dev": {
@@ -13,7 +13,8 @@
 		"dealerdirect/phpcodesniffer-composer-installer": "*",
 		"squizlabs/php_codesniffer": "^3.3.1",
 		"phpcompatibility/phpcompatibility-wp": "*",
-		"wp-coding-standards/wpcs": "^1"
+		"wp-coding-standards/wpcs": "^1",
+		"wp-cli/i18n-command": "^2.1"
 	},
 	"config": {
 		"sort-order": true
@@ -23,7 +24,8 @@
 	"scripts": {
 		"phpcs": "phpcs --standard=WordPress --ignore=vendor/,node_modules/,assets/ --extensions=php -p ./",
 		"phpcs-compat": "phpcs --extensions=php --standard=PHPCompatibilityWP --ignore=vendor/,node_modules/,assets/ --runtime-set testVersion 5.6- -p ./",
-		"phpcbf": "phpcbf --standard=WordPress --ignore=vendor/,node_modules/,assets/ --extensions=php -p ./"
+		"phpcbf": "phpcbf --standard=WordPress --ignore=vendor/,node_modules/,assets/ --extensions=php -p ./",
+		"makepot": "wp i18n make-pot . languages/genesis-tabs.pot --headers='{ \"Report-Msgid-Bugs-To\": \"StudioPress <translations@studiopress.com>\" }' --exclude=bin/ --quiet"
 	},
 	"support": {
 		"issues": "https://github.com/studiopress/genesis-tabs/issues",
