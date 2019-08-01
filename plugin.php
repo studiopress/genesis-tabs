@@ -1,13 +1,13 @@
 <?php
 /**
  * Plugin Name: Genesis Tabs
- * Plugin URI: http://wordpress.org/plugins/genesis-tabs/
+ * Plugin URI: https://wordpress.org/plugins/genesis-tabs/
  * Description: Genesis Tabs extends the Featured Post widget to create a simple tabbed area.
  * Author: StudioPress
- * Author URI: http://www.studiopress.com/
+ * Author URI: https://www.studiopress.com/
  * Text Domain: genesis-tabs
  *
- * Version: 1.0.1
+ * Version: 0.9.5
  *
  * License: GNU General Public License v2.0 (or later)
  * License URI: https://opensource.org/licenses/gpl-license.php
@@ -41,7 +41,7 @@ function genesis_tabs_activation_check() {
 
 }
 
-define( 'GENESIS_TABS_PLUGIN_VERSION', '1.0.1' );
+define( 'GENESIS_TABS_PLUGIN_VERSION', '0.9.5' );
 
 define( 'GENESIS_TABS_DIR', plugin_dir_path( __FILE__ ) );
 define( 'GENESIS_TABS_URL', plugins_url( '', __FILE__ ) );
