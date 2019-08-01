@@ -1,25 +1,38 @@
-#, fuzzy
+# Copyright (C) 2019 StudioPress
+# This file is distributed under the same license as the Genesis Tabs plugin.
 msgid ""
 msgstr ""
-"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
-"Project-Id-Version: Genesis Tabs\n"
-"POT-Creation-Date: 2019-06-18 10:42-0400\n"
-"PO-Revision-Date: 2019-06-18 10:31-0400\n"
+"Project-Id-Version: Genesis Tabs 0.9.5\n"
+"Report-Msgid-Bugs-To: StudioPress <translations@studiopress.com>\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2.1\n"
-"X-Poedit-Basepath: ..\n"
-"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
-"X-Poedit-WPHeader: plugin.php\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
-"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
-"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
-"X-Poedit-SearchPath-0: .\n"
-"X-Poedit-SearchPathExcluded-0: *.js\n"
+"POT-Creation-Date: 2019-08-01T17:25:44+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.2.0\n"
+"X-Domain: genesis-tabs\n"
+
+#. Plugin Name of the plugin
+msgid "Genesis Tabs"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://wordpress.org/plugins/genesis-tabs/"
+msgstr ""
+
+#. Description of the plugin
+msgid "Genesis Tabs extends the Featured Post widget to create a simple tabbed area."
+msgstr ""
+
+#. Author of the plugin
+msgid "StudioPress"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://www.studiopress.com/"
+msgstr ""
 
 #: includes/class-genesis-tabs-widget.php:22
 msgid "Displays featured posts in Tabs"
@@ -118,39 +131,4 @@ msgstr ""
 
 #: includes/class-genesis-tabs-widget.php:416
 msgid "More Text (if applicable)"
-msgstr ""
-
-#: plugin.php:33
-#, php-format
-msgid ""
-"Sorry, you can't activate unless you have installed <a href=\"%s\">Genesis</"
-"a>"
-msgstr ""
-
-#: plugin.php:39
-#, php-format
-msgid ""
-"Sorry, you cannot activate without <a href=\"%1$s\">Genesis %2$s</a> or "
-"greater"
-msgstr ""
-
-#. Plugin Name of the plugin/theme
-msgid "Genesis Tabs"
-msgstr ""
-
-#. Plugin URI of the plugin/theme
-msgid "http://wordpress.org/plugins/genesis-tabs/"
-msgstr ""
-
-#. Description of the plugin/theme
-msgid ""
-"Genesis Tabs extends the Featured Post widget to create a simple tabbed area."
-msgstr ""
-
-#. Author of the plugin/theme
-msgid "StudioPress"
-msgstr ""
-
-#. Author URI of the plugin/theme
-msgid "http://www.studiopress.com/"
 msgstr ""
