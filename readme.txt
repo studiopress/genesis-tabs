@@ -8,6 +8,12 @@ Stable tag: 0.9.5
 
 This plugin allows you to create a tabbed section, via a widget, that can display the featured image, along with the title and excerpt from each post.
 
+== DEPRECATION NOTICE ==
+
+This plugin is now deprecated and will no longer receive feature updates.
+
+We recommend replacing the Genesis Featured Tabs widget with a Genesis Featured Post or Page widget, image widget, or slider widget.
+
 == Description ==
 
 This plugin allows you to create a tabbed section, via a widget, that can display the featured image, along with the title and excerpt from each post.
